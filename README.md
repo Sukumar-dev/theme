@@ -69,4 +69,3 @@ The seeded catalog is curated from official theme product pages, starter templat
 - Add authentication for cross-device saved collections
 - Add editorial/admin dashboard for theme ingestion
 - Add a real LLM or embeddings service for recommendation explanations
-
