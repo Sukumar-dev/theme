@@ -59,6 +59,32 @@ PORT=4000
 SITE_URL=http://localhost:4000
 ```
 
+## Deploy on Render
+
+This repo includes a root `render.yaml` Blueprint for a single Render web service.
+
+Why a single service:
+
+- Render builds the React frontend
+- Express serves the built frontend and the API together
+- No separate frontend/backend URL wiring is required
+
+Render settings from the Blueprint:
+
+- Build command: `npm install && npm run build`
+- Start command: `npm run start`
+- Health check: `/api/health`
+- Plan: `free`
+
+To deploy:
+
+1. In Render, choose `New +` -> `Blueprint`.
+2. Connect the GitHub repo: `Sukumar-dev/theme`.
+3. Render will detect `render.yaml`.
+4. Review the service named `themeatlas` and click `Apply`.
+
+After the first deploy, Render will assign an `onrender.com` URL. The backend automatically uses Render's `RENDER_EXTERNAL_URL` for sitemap generation if `SITE_URL` is not set manually.
+
 ## Research note
 
 The seeded catalog is curated from official theme product pages, starter template galleries, and marketplace listings so users can navigate to the native source for deeper review or purchase.

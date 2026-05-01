@@ -10,7 +10,10 @@ import { decorateTheme, themeMatchesSearch } from "./lib/recommendThemes.js";
 
 const app = express();
 const port = Number.parseInt(process.env.PORT ?? "4000", 10);
-const siteUrl = process.env.SITE_URL ?? `http://localhost:${port}`;
+const siteUrl =
+  process.env.SITE_URL ??
+  process.env.RENDER_EXTERNAL_URL ??
+  `http://localhost:${port}`;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
